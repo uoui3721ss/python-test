@@ -13,9 +13,11 @@ app = FastAPI(
 )
 
 # Configure CORS
+# WARNING: In production, replace allow_origins=["*"] with specific allowed domains
+# For example: allow_origins=["https://yourdomain.com", "https://app.yourdomain.com"]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, replace with specific origins
+    allow_origins=["*"],  # TODO: Replace with specific origins in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Optional, List
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class CustomerInfo(BaseModel):
@@ -40,7 +40,7 @@ class WelcomeKitResponse(BaseModel):
     plan_details: Optional[ServicePlan] = None
     estimated_delivery: str
     message: str
-    timestamp: datetime = Field(default_factory=datetime.now)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 
 class ChatMessage(BaseModel):
@@ -54,4 +54,4 @@ class ChatResponse(BaseModel):
     response: str
     session_id: str
     suggestions: Optional[List[str]] = None
-    timestamp: datetime = Field(default_factory=datetime.now)
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
