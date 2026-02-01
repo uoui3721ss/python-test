@@ -240,11 +240,15 @@ class TestIntegration(unittest.TestCase):
         
         # Top phones should have high-value patterns
         top_phone = ordered[0]
-        self.assertIn('777', top_phone.replace(' ', '').replace('-', '') or
-                     '888' in top_phone.replace(' ', '').replace('-', '') or
-                     '999' in top_phone.replace(' ', '').replace('-', '') or
-                     '111' in top_phone.replace(' ', '').replace('-', '') or
-                     '000' in top_phone.replace(' ', '').replace('-', ''))
+        cleaned = top_phone.replace(' ', '').replace('-', '')
+        has_pattern = any([
+            '777' in cleaned,
+            '888' in cleaned,
+            '999' in cleaned,
+            '111' in cleaned,
+            '000' in cleaned
+        ])
+        self.assertTrue(has_pattern)
 
 
 if __name__ == '__main__':

@@ -12,10 +12,10 @@ UAE telephone number preferences typically include:
 """
 
 import re
-from typing import List, Dict
+from typing import List, Dict, Any
 
 
-def parse_uae_phone(phone: str) -> Dict[str, any]:
+def parse_uae_phone(phone: str) -> Dict[str, Any]:
     """
     Parse a UAE telephone number and extract relevant information.
     
@@ -79,7 +79,7 @@ def count_sequential_patterns(number: str) -> int:
     return count
 
 
-def calculate_preference_score(phone_info: Dict[str, any]) -> float:
+def calculate_preference_score(phone_info: Dict[str, Any]) -> float:
     """
     Calculate a preference score for a UAE phone number based on local preferences.
     
